@@ -43,7 +43,12 @@ calcularValorTotal = function(){
     //8. Invocar a calcularIVA y lo que devuelve guardar en la variable valorIVA
 	//   El IVA debe calcularse sobre el valor del subtotal menos el descuento
     //9. Mostrar el resultado en el componente lblValorIVA    
+    valorIVA = calcularIVA((valorSubtotal-valorDescuento));
+    let lblComponenteIva = document.getElementById("lblValorIVA");
+    lblComponenteIva.innerText = valorIVA.toFixed(3);
+   
     /*
+    
             Caso de prueba: 
                 precioProducto: 5.4  cantidad: 10 descuento: 10
 					--valorSubtotal: 54
