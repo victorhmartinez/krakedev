@@ -71,7 +71,10 @@ calcularValorTotal = function(){
                 Total esperado: 54.432
             Si el caso de prueba es exitoso, hacer un commit
         */
+
     //12. Mostrar un resumen en el componente lblResumen, si no existe debe agregarlo
+    let lblComponenteResumen = document.getElementById("lblResumen");
+    lblComponenteResumen.innerText = "Valor a pagar por "+cantidad+" "+nombreProducto+" con "+porcentajeDescuento+"% de descuento: USD "+valorTotal.toFixed(3);
         /*
             Ejemplo: 
                 Valor a pagar por 20 cerveza corona con 10% de descuento: USD 48.75
