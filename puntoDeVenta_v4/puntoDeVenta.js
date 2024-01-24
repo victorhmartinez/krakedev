@@ -88,23 +88,24 @@ limpiar=function(){
         Dejar todos los textos de los montos con el valor 0.0
         Si funciona, hacer un commit
      */
+        let cmpNombre = document.getElementById("txtProducto");
+        cmpNombre.value = "";
+        let cmpCantidad = document.getElementById("txtCantidad");
+        cmpCantidad.value = "0";
+        let cmpPrecio = document.getElementById("txtPrecio");
+        cmpPrecio.value = "0.0";
+        let cmpDescuento = document.getElementById("txtPorcentajeDescuento");
+        cmpDescuento.value = "0";
+        let lblComponenteSubtotal = document.getElementById("lblSubtotal");
+        lblComponenteSubtotal.innerText = "0.0";
+        let lblComponenteDescuento = document.getElementById("lblDescuento");
+        lblComponenteDescuento.innerText = "0.0";
+        let lblComponenteValorIVA = document.getElementById("lblValorIVA");
+        lblComponenteValorIVA.innerText = "0.0";
+        let lblComponenteTotal = document.getElementById("lblTotal");
+        lblComponenteTotal.innerText = "0.0";
+        let lblComponenteResumen = document.getElementById("lblResumen");
+        lblComponenteResumen.innerText = "";
 }
-let cmpNombre = document.getElementById("txtProducto");
-cmpNombre.value = "";
-let cmpCantidad = document.getElementById("txtCantidad");
-cmpCantidad.value = "0";
-let cmpPrecio = document.getElementById("txtPrecio");
-cmpPrecio.value = "0.0";
-let cmpDescuento = document.getElementById("txtPorcentajeDescuento");
-cmpDescuento.value = "0";
-let lblComponenteSubtotal = document.getElementById("lblSubtotal");
-lblComponenteSubtotal.innerText = "0.0";
-let lblComponenteDescuento = document.getElementById("lblDescuento");
-lblComponenteDescuento.innerText = "0.0";
-let lblComponenteValorIVA = document.getElementById("lblValorIVA");
-lblComponenteValorIVA.innerText = "0.0";
-let lblComponenteTotal = document.getElementById("lblTotal");
-lblComponenteTotal.innerText = "0.0";
-let lblComponenteResumen = document.getElementById("lblResumen");
-lblComponenteResumen.innerText = "";
+
 /* SI TODO FUNCIONA, HACER UN PUSH */
