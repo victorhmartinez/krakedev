@@ -59,6 +59,9 @@ calcularValorTotal = function(){
         */
     //10. Invocar a calcularTotal y lo que devuelve guardar en la variable valorTotal
     //11. Mostrar el resultado en el componente lblTotal
+    valorTotal = calcularTotal(valorSubtotal,valorDescuento,valorIVA);  
+    let lblComponenteTotal = document.getElementById("lblTotal");
+    lblComponenteTotal.innerText = valorTotal.toFixed(3);
      /*
             Caso de prueba: 
                 precioProducto: 5.4  cantidad: 10 descuento: 10
