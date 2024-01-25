@@ -9,6 +9,11 @@ calcularPromediosNotas = function () {
     Nota3 = recuperarFlotante("txtNota3");
     promedio = calcularPromedio(Nota1, Nota2, Nota3);
     promedio=promedio.toFixed(2);
-    mensaje="el prmedio es "+promedio
+    mensaje="El promedio es "+promedio
     cambiarTexto("lblResultado",mensaje)
+    if(promedio>7){
+        cambiarImagen("cmpImagen","./imagenes/exito.gif")
+    }else{
+        cambiarImagen("cmpImagen","./imagenes/fracaso.gif")
+    }
 }
