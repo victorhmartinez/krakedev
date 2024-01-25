@@ -3,11 +3,11 @@ jugar = function(){
     aleatorio=lanzarDado();
     cambiarTexto("lblNumero",aleatorio);
     if(aleatorio>3){
-        console.log("Es mayor a 3");
-        console.log("Ganaste :)");
+      mensaje = "El resultado es "+aleatorio+"\nEs mayor a 3"+"\nGanaste";
+        cambiarTexto("lblNumero",mensaje);
     }else{
-        console.log("Es menor a 3");
-        console.log("Estas de malas :(");
+        mensaje = "El resultado es "+aleatorio+"\nEs menor a 3"+"\nPerdiste, estas de malas";
+        cambiarTexto("lblNumero",mensaje);
     }
 }
 
