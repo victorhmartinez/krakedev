@@ -14,24 +14,40 @@ body {
     margin-bottom: 20px;
 }
 
+.contenido {
+    display: flex;
+    align-items: center; 
+}
+
 .opcionesJuagdor {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+    justify-content: center; 
+    margin-right: 20px; 
 }
 
 .opcionesJuagdor img {
     cursor: pointer;
     margin-right: 30px;
-
+    transition: transform 0.3s ease-in-out;
 }
 
-.opcionesJuagdor img:hover {
+.opcionesJuagdor img:hover,
+.opcionesJuagdor img:focus {
     border: 2px solid #fff; 
     border-radius: 5px;
     transform: scale(1.1);
 }
 
+.puntuaciones {
+    display: flex;
+    flex-direction: column; 
+    margin-right: 40px; 
+}
+
+.puntuaciones h3 {
+    color: #fff;
+    margin-bottom: 10px; /
+}
 
 .opcionComputador {
     margin-bottom: 20px;
@@ -45,4 +61,21 @@ body {
 
 .resultado {
     color: #fff; 
+}
+.boton {
+    background-color: #e67e22; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+   
+}
+
+.boton:hover {
+    background-color: #d35400; 
 }

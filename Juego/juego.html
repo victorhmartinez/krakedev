@@ -1,27 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+        <!DOCTYPE html>
+        <html lang="en">
 
-<head>
-    <link rel="stylesheet" href="juego.css">
-    <script src="juego.js"></script>
-    <script src="serviciosJuego.js"></script>
-    <script src="utilitarios.js"></script>
-</head>
+        <head>
+            <link rel="stylesheet" href="juego.css">
+            <script src="juego.js"></script>
+            <script src="serviciosJuego.js"></script>
+            <script src="utilitarios.js"></script>
+        </head>
 
-<body>
-    <h2 class="titulo">JUEGO PIEDRA PAPEL TIJERAS</h2>
-    <div class="opcionesJuagdor">
-        <img src="./imagenes/papel.png" width="200px" alt="papel" onclick="jugar('papel')">
-        <img src="./imagenes/piedra.png" width="200px" alt="papel" onclick="jugar('piedra')">
-        <img src="./imagenes/tijeras.png" width="100px" alt="papel" onclick="jugar('tijeras')">
-    </div>
-    <div class="opcionComputador">
-        <img width="200px" id="imgComputador" src="" alt="">
-    </div>
-    <div>
-        <h3 class="resultado" id="lblGanador"></h3>
-    </div>
+        <body>
+            <h2 class="titulo">JUEGO PIEDRA PAPEL TIJERAS</h2>
+            <div class="contenido">
+                <div class="opcionesJuagdor">
+                    <img src="./imagenes/papel.png" width="200px" alt="papel" onclick="jugar('papel')">
+                    <img src="./imagenes/piedra.png" width="200px" alt="papel" onclick="jugar('piedra')">
+                    <img src="./imagenes/tijeras.png" width="100px" alt="papel" onclick="jugar('tijeras')">
+                </div>
+                <div class="puntuaciones">
+                <h3><strong>Puntuacion jugador</strong></h3 >  
+                  <h3 id="lblJuagdor">0</h3>
+                  <h3><strong>Puntuacion Computador</strong></h3    >  
+                    <h3 id="lblComputador">0</h3>
+            </div>
+  
+        </div>
+            <div class="opcionComputador">
+                <img width="200px" id="imgComputador" src="" alt="">
+            </div>
+            <div>
+                <h3 class="resultado" id="lblGanador"></h3>
+                <h3 class="resultado" id="lblResultado"></h3>
+            </div>
+<input class="boton"  type="button" value="Nueva partida" onclick="nuevaPartida()">
+        </body>
 
-</body>
-
-</html>
+        </html>
