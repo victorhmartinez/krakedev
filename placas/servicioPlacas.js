@@ -109,6 +109,30 @@ obtenerTipoVehículo= function( placa){
     }
 }
 
+obtnerDiaPicoYPlaca= function(placa){
+    let ultimoDigito = placa.charAt(placa.length-1);
+    if(ultimoDigito == 1 || ultimoDigito == 2){
+        return "LUNES";
+    } else if (ultimoDigito == 3 || ultimoDigito == 4){
+        return "MARTES";
+    } else if(ultimoDigito == 5  || ultimoDigito == 6){
+        return "MIERCOLES";
+    } else if(ultimoDigito == 7 || ultimoDigito == 8){
+        return "JUEVES";
+    } else if(ultimoDigito == 9 || ultimoDigito == 0){
+        return "VIERNES"
+    };
+}
+
+limpiar= function(){
+    document.getElementById("txtPlaca").value = '';
+    mostrarTexto("lblResultado","");
+    mostrarTexto("lblProvincia","");
+    mostrarTexto("lblTipo","");
+    mostrarTexto("lblPicoYPlaca","");
+    mostrarTexto("lblErrores","");
+}
+
 
 
 
