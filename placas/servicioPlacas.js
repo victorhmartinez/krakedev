@@ -92,6 +92,22 @@ obtenerProvincia = function (placa) {
         return null;
     }
 }
+obtenerTipoVehículo= function( placa){
+    let segundoDigito = placa.charAt(1);
+    if(segundoDigito=="A" || segundoDigito=="Z"){
+        return "Vehículos comerciales(como taxis o autobuses)"
+    }else if(segundoDigito=="E"){
+        return "Vehículos gubernamentales"
+    }else if(segundoDigito=="X"){
+        return "Vehículos de uso oficial"
+    } else if( segundoDigito=="S"){
+        return "Vehículos del gobierno provincial"
+    }else if(segundoDigito=="M"){
+        return "Vehículos municipales"
+    }else{
+        return "Vehículo particular (privado)"
+    }
+}
 
 
 
