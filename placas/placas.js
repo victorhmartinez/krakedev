@@ -27,4 +27,12 @@ validarPlaca=function(){
         mostrarTexto("lblResultado","ESTRUCTURA INVALIDA")
         mostrarTexto("lblErrores",erroresEstructura)
     }
+    limpiar= function(){
+        document.getElementById("txtPlaca").value = '';
+        mostrarTexto("lblResultado","");
+        mostrarTexto("lblProvincia","");
+        mostrarTexto("lblTipo","");
+        mostrarTexto("lblPicoYPlaca","");
+        mostrarTexto("lblErrores","");
+    }
 }
