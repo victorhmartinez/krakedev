@@ -124,14 +124,7 @@ obtnerDiaPicoYPlaca= function(placa){
     };
 }
 
-limpiar= function(){
-    document.getElementById("txtPlaca").value = '';
-    mostrarTexto("lblResultado","");
-    mostrarTexto("lblProvincia","");
-    mostrarTexto("lblTipo","");
-    mostrarTexto("lblPicoYPlaca","");
-    mostrarTexto("lblErrores","");
-}
+
 
 
 
