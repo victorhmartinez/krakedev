@@ -72,9 +72,10 @@ ingresarLetra = function () {
         validar(letra)
         //Validacmos si esta las coincidencias permiten ganar
         if(coincidencias==5){
-            alert("HAS GANADO")
+            
+            mostrarImagen("imgGif","./ganador.gif")
         }else if(intentos==10){
-            alert("HAS PERDIDO")
+            mostrarImagen("imgGif","./gameOver.gif")
         }
     }else{
         alert("SOLO SE ACEPTAN MAYUSCULAS")
