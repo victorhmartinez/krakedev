@@ -33,7 +33,17 @@ guardarPalabra = function () {
     }
 
 }
-
+//FUncion para mostrar la letar en el div
 mostrarLetra = function (letra, posicion) {
     mostrarTexto("div" + posicion, letra)
+}
+//Funcion para validar si la letra en la palabra secreta
+validar = function(letra){
+let letrasEncontradas=0;
+for(let i=0; i< palabraSecreta.length;i++){
+if(palabraSecreta.charAt(i)==letra){
+    mostrarLetra(letra,i);
+    letrasEncontradas++;
+}
+}
 }
