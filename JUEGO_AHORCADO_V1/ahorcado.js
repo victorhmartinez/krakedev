@@ -38,12 +38,25 @@ mostrarLetra = function (letra, posicion) {
     mostrarTexto("div" + posicion, letra)
 }
 //Funcion para validar si la letra en la palabra secreta
-validar = function(letra){
-let letrasEncontradas=0;
-for(let i=0; i< palabraSecreta.length;i++){
-if(palabraSecreta.charAt(i)==letra){
-    mostrarLetra(letra,i);
-    letrasEncontradas++;
+validar = function (letra) {
+    let letrasEncontradas = 0;
+    for (let i = 0; i < palabraSecreta.length; i++) {
+        //Verificamos si la letra se encuntra dentro de la palabra secreta
+        if (palabraSecreta.charAt(i) == letra) {
+            //Mostramos la letra en caso de encontrala
+            mostrarLetra(letra, i);
+            letrasEncontradas++;
+        }
+    }
 }
-}
+// Funcion para recupera la letra ingresada por el usuario
+ingresarLetra = function () {
+    let letra = recuperarTexto("txtLetra");
+    //Comprobamos si es mayuscula
+    if(esMayuscula(letra)){
+        validar(letra)
+    }else{
+        alert("SOLO SE ACEPTAN MAYUSCULAS")
+    }
+
 }
