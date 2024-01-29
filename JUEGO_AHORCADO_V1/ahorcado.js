@@ -56,6 +56,7 @@ validar = function (letra) {
         if(letrasEncontradas==0){
             alert("LA LETRA NO ES PARTE DE LA PALABRA")
             errores++;
+            mostrarAhorcado();
         }
     }
    
@@ -69,6 +70,7 @@ ingresarLetra = function () {
     //Comprobamos si es mayuscula
     if(esMayuscula(letra)){
         validar(letra)
+        //Validacmos si esta las coincidencias permiten ganar
         if(coincidencias==5){
             alert("HAS GANADO")
         }else if(intentos==10){
@@ -78,4 +80,11 @@ ingresarLetra = function () {
         alert("SOLO SE ACEPTAN MAYUSCULAS")
     }
 
+}
+
+//Funcion para mostrar la img del ahorcado
+mostrarAhorcado= function(){
+    if(errores<10){
+        mostrarImagen("ahorcadoImagen","Ahorcado_0"+errores+".png")
+    }
 }
