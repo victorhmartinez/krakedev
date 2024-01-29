@@ -16,18 +16,49 @@ recorrerCadena = function (cadena) {
     }
 }
 //Inveritir cadena
-invertirCadena=function(){
+invertirCadena = function () {
     let mensaje = recuperarTexto("txtCadena");
     recorrerCadenaInversa(mensaje);
 }
 //Recorrer cadena de manera inversa
 recorrerCadenaInversa = function (cadena) {
-  
+
     let letra = '';
-    let resultado="";
-    for (let posicion = cadena.length; posicion >=0 ; posicion--) {
+    let resultado = "";
+    for (let posicion = cadena.length; posicion >= 0; posicion--) {
         letra = cadena.charAt(posicion);
-        resultado+=letra;
+        resultado += letra;
     }
-    mostrarTexto("lblCadenaInversa",resultado)
+    mostrarTexto("lblCadenaInversa", resultado)
+}
+
+//Buscar letras
+buscarLetra = function (cadena, letra) {
+    let letraIterada;
+    let existeLetra = false;
+
+
+    for (let i = 0; i < cadena.length; i++) {
+        letraIterada = cadena.charAt(i);
+        if (letraIterada == letra) {
+            existeLetra = true;
+        }
+    }
+    if (existeLetra == true) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//Contador mayusculas
+contarMayuscula = function (cadena) {
+    let letra
+    let contadorMayusculas=0;
+    for (let i = 0; i < cadena.length; i++) {
+        letra = cadena.charAt(i);
+        if(esMayuscula(letra)){
+            contadorMayusculas+=1
+        }
+    }
 }
