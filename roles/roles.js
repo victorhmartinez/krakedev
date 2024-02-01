@@ -48,13 +48,16 @@ desahabilitarOpciones = function () {
     deshabilitarComponente("txtSueldo")
     deshabilitarComponente("btnGuardar")
 }
-ejecutarNuevo = function () {
-
+habiliatOpciones= function(){
     habilitarComponente("txtCedula")
     habilitarComponente("txtNombre")
     habilitarComponente("txtApellido")
     habilitarComponente("txtSueldo")
     habilitarComponente("btnGuardar")
+}
+ejecutarNuevo = function () {
+habiliatOpciones();
+   
     esNuevo = true;
 }
 buscarEmpleado = function (cedula) {
