@@ -178,3 +178,12 @@ ejecutarBusqueda = function () {
         alert("Empleado no existe")
     }
 }
+limpiar = function(){
+    mostrarTextoEnCaja("txtCedula"," ")
+
+    mostrarTextoEnCaja("txtNombre"," ")
+    mostrarTextoEnCaja("txtApellido"," ")
+    mostrarTextoEnCaja("txtSueldo"," ")
+  esNuevo=false;
+  desahabilitarOpciones();
+}
