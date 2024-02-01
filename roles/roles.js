@@ -114,6 +114,7 @@ guardar = function () {
               agregado=  agregarEmpleado(empleadoNuevo);
               if(agregado){
                 alert("Empleado guardado correctamente");
+                desahabilitarOpciones();
                 mostrarEmpelado()
               }else{
                 alert("Ya existe un empleado con esa cedula"+cedula);
