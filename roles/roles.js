@@ -199,3 +199,23 @@ if(empleadoEncotrado!=null){
     alert("El empleado no existe")
 }
 }
+calcularAporteEmpleado=function(sueldo){
+ return sueldo*0.0945;
+}
+calcularValorAPagar= function(sueldo,aporteIESS,descuento){
+let valorPagar=0.0;
+valorPagar= (sueldo-aporteIESS)-descuento;
+return valorPagar;
+}
+calcularRol=function(){
+ let sueldo= recuperarFloatDiv("infoSueldo")
+ let descuento= recuperarFloat("txtDescuentos");
+ let aporte;
+ 
+ if(descuento!=NaN){
+    aporte= calcularAporteEmpleado(sueldo);
+    mostrarTexto("infoIESS",aporte);
+    let valorPagar=calcularValorAPagar(sueldo,aporte,descuento);
+    mostrarTexto("infoPago",valorPagar);
+ }
+}
