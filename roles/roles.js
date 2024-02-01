@@ -48,7 +48,7 @@ desahabilitarOpciones = function () {
     deshabilitarComponente("txtSueldo")
     deshabilitarComponente("btnGuardar")
 }
-habiliatOpciones= function(){
+habiliatOpciones = function () {
     habilitarComponente("txtCedula")
     habilitarComponente("txtNombre")
     habilitarComponente("txtApellido")
@@ -56,8 +56,8 @@ habiliatOpciones= function(){
     habilitarComponente("btnGuardar")
 }
 ejecutarNuevo = function () {
-habiliatOpciones();
-   
+    habiliatOpciones();
+
     esNuevo = true;
 }
 buscarEmpleado = function (cedula) {
@@ -92,7 +92,7 @@ guardar = function () {
     let sonMayusculasNombre = todasMayusculas(nombre)
     let sonMayusculasApellido = todasMayusculas(apellido)
 
-    if (cedula.length > 0  || nombre.length > 0 || apellido.length > 0 || sueldo > 0.0) {
+    if (cedula.length > 0 || nombre.length > 0 || apellido.length > 0 || sueldo > 0.0) {
         if (cedula.length < 10 && !sonTodosDigitos) {
             mostrarTexto("lblErrorCedula", "La cedula deben ser 10 digitos")
 
@@ -100,28 +100,37 @@ guardar = function () {
             mostrarTexto("lblErrorNombre", "El nombre debe tener al menos 3 caracteres y todas mayusculas")
         } else if (apellido.length < 3 || !sonMayusculasApellido) {
             mostrarTexto("lblErrorApellido", "El apellido debe tener al menos 3 caracteres y todas mayusculas")
-        } else if (sueldo==NaN) {
+        } else if (sueldo == NaN) {
             mostrarTexto("lblErrorSueldo", "EL suedo debe ser flotante")
-          
-        } else   if (sueldo <= 400 || sueldo >= 5000) {
+
+        } else if (sueldo <= 400 || sueldo >= 5000) {
             mostrarTexto("lblErrorSueldo", "El sueldo debe estar entre 400 a 5000")
 
-        }else{
-            if(esNuevo){
-                let empleadoNuevo={};
-                let agregado=false;
-                empleadoNuevo.cedula=cedula;
-                empleadoNuevo.nombre=nombre;
-                empleadoNuevo.apellido=apellido;
-                empleadoNuevo.sueldo=sueldo;
-              agregado=  agregarEmpleado(empleadoNuevo);
-              if(agregado){
-                alert("Empleado guardado correctamente");
+        } else {
+            if (esNuevo) {
+                let empleadoNuevo = {};
+                let agregado = false;
+                empleadoNuevo.cedula = cedula;
+                empleadoNuevo.nombre = nombre;
+                empleadoNuevo.apellido = apellido;
+                empleadoNuevo.sueldo = sueldo;
+                agregado = agregarEmpleado(empleadoNuevo);
+                if (agregado) {
+                    alert("Empleado guardado correctamente");
+                    desahabilitarOpciones();
+                    mostrarEmpelado();
+                    esNuevo=false;
+                } else {
+                    alert("Ya existe un empleado con esa cedula" + cedula);
+                }
+            }else{
+                let empleadoEncontrado= buscarEmpleado(cedula);
+                empleadoEncontrado.nombre=nombre;
+                empleadoEncontrado.apellido=apellido;
+                empleadoEncontrado.sueldo=sueldo;
+                alert("Empleado modificado exitosamente");
+                mostrarEmpelado();
                 desahabilitarOpciones();
-                mostrarEmpelado()
-              }else{
-                alert("Ya existe un empleado con esa cedula"+cedula);
-              }
             }
         }
     } else {
@@ -150,4 +159,22 @@ todasMayusculas = function (cadena) {
     }
     return todasMayusculas;
 }
+ejecutarBusqueda = function () {
+    let cedula = recuperarTexto("txtBusquedaCedula");
+    let empleadoEncontrado= buscarEmpleado(cedula);
+    if(empleadoEncontrado!=null){
+        mostrarTextoEnCaja("txtCedula",empleadoEncontrado.cedula);
+        mostrarTextoEnCaja("txtNombre",empleadoEncontrado.nombre);
+        mostrarTextoEnCaja("txtApellido",empleadoEncontrado.apellido);
+        mostrarTextoEnCaja("txtSueldo",empleadoEncontrado.sueldo);
+       //habiliatar y desahabilitar componentes
+        deshabilitarComponente("txtCedula")
+        habilitarComponente("txtNombre")
+        habilitarComponente("txtApellido")
+        habilitarComponente("txtSueldo")
+        habilitarComponente("btnGuardar")
 
+    }else{
+        alert("Empleado no existe")
+    }
+}
