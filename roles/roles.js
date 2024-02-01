@@ -212,10 +212,12 @@ calcularRol=function(){
  let descuento= recuperarFloat("txtDescuentos");
  let aporte;
  
- if(descuento!=NaN){
+ if(!isNaN(descuento)){
     aporte= calcularAporteEmpleado(sueldo);
     mostrarTexto("infoIESS",aporte);
     let valorPagar=calcularValorAPagar(sueldo,aporte,descuento);
     mostrarTexto("infoPago",valorPagar);
+ }else{
+    alert("Debe ser el descuento un flotante")
  }
 }
