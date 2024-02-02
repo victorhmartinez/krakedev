@@ -201,9 +201,9 @@ buscarPorRol = function () {
         mostrarTexto("infoSueldo", empleadoEncotrado.sueldo)
 
     } else {
-        
+
         mostrarTexto("lblErrorBusqueda", "El empleado no existe")
-      
+
     }
 }
 calcularAporteEmpleado = function (sueldo) {
@@ -244,68 +244,72 @@ buscarRol = function (cedula) {
         }
     }
 }
-agregarRol=function(rol){
+agregarRol = function (rol) {
     let rolEncontrado = buscarRol(rol.cedula);
-    if(rolEncontrado==null){
+    if (rolEncontrado == null) {
         roles.push(rol);
         alert("Rol añadido con exito")
         deshabilitarComponente("botonGuardarRol")
-    }else{
+    } else {
         alert("Este rol ya existe")
-        
+
     }
 }
-calcularAporteEmpleador= function(sueldo){
-    return sueldo*0.1115;
+calcularAporteEmpleador = function (sueldo) {
+    return sueldo * 0.1115;
 }
 
-guardarRol=function(){
-    let cedula=recuperarTextoDiv("infoCedula");
-    let nombre=recuperarTextoDiv("infoNombre")
-    let sueldo=recuperarFloatDiv("infoSueldo")
-    let aporteEmpleado=recuperarFloatDiv("infoIESS")
-    let pago=recuperarFloatDiv("infoPago")
-    let aporteEmpleador=calcularAporteEmpleador(sueldo);
-    let rol ={};
-    rol.cedula=cedula;
-    rol.nombre=nombre;
-    rol.sueldo=sueldo;
-    rol.aporteEmpleado=aporteEmpleado;
-    rol.pago=pago;
-    rol.aporteEmpleador=aporteEmpleador
+guardarRol = function () {
+    let cedula = recuperarTextoDiv("infoCedula");
+    let nombre = recuperarTextoDiv("infoNombre")
+    let sueldo = recuperarFloatDiv("infoSueldo")
+    let aporteEmpleado = recuperarFloatDiv("infoIESS")
+    let pago = recuperarFloatDiv("infoPago")
+    let aporteEmpleador = calcularAporteEmpleador(sueldo);
+    let rol = {};
+    rol.cedula = cedula;
+    rol.nombre = nombre;
+    rol.sueldo = sueldo;
+    rol.aporteEmpleado = aporteEmpleado;
+    rol.pago = pago;
+    rol.aporteEmpleador = aporteEmpleador
     agregarRol(rol);
 }
 
-mostrarRoles=function(){
-    let cmpTablaRol= document.getElementById("tablaResumen");
-    let contenidoTabla="<table><tr>"+
-    "<th>CEDULA</th>"+
-    "<th>NOMBRE</th>"+
-    "<th>VALOR A PAGAR</th>"+
-    "<th>APORTE EMPLEADO</th>"+
-    "<th>APORTE EMPLEADOR</th>"
-    for(let i =0; i<roles.length;i++){
-        let rol =roles[i];
+mostrarRoles = function () {
+    let cmpTablaRol = document.getElementById("tablaResumen");
+    let contenidoTabla = "<table><tr>" +
+        "<th>CEDULA</th>" +
+        "<th>NOMBRE</th>" +
+        "<th>VALOR A PAGAR</th>" +
+        "<th>APORTE EMPLEADO</th>" +
+        "<th>APORTE EMPLEADOR</th>"
+    for (let i = 0; i < roles.length; i++) {
+        let rol = roles[i];
         contenidoTabla += "<tr><td>" + rol.cedula + "</td>" +
-      
-        "<td>" + rol.nombre + "</td>" +
-        "<td>" + rol.pago + "</td>" +
-        "<td>" + rol.aporteEmpleado + "</td>" +
-        "<td>" + rol.aporteEmpleador + "</td></tr>"
+
+            "<td>" + rol.nombre + "</td>" +
+            "<td>" + rol.pago + "</td>" +
+            "<td>" + rol.aporteEmpleado + "</td>" +
+            "<td>" + rol.aporteEmpleador + "</td></tr>"
     }
-    contenidoTabla+="</table>"
-    cmpTablaRol.innerHTML=contenidoTabla;
+    contenidoTabla += "</table>"
+    cmpTablaRol.innerHTML = contenidoTabla;
+    mostrarTotales()
 
 }
-mostrarTotales=function(){
-    let totalEmpleado,totalEmpleador,totalAPagar;
-    for(let i =0;i<roles.length;i++){
+mostrarTotales = function () {
+    let totalEmpleado=0.0, totalEmpleador=0.0, totalAPagar=0.0;
+    let totalNomina=0.0;
+    for (let i = 0; i < roles.length; i++) {
         let rol = roles[i];
-        totalAPagar+=rol.pago
-        totalEmpleado+=rol.aporteEmpleado;
-        totalEmpleador+=rol.aporteEmpleador;
+        totalAPagar += rol.pago
+        totalEmpleado += rol.aporteEmpleado;
+        totalEmpleador += rol.aporteEmpleador;
     }
-    mostrarTexto("infoTotalPago",totalAPagar)
-    mostrarTexto("infoAporteEmpresa",totalEmpleador)
-    mostrarTexto("infoAporteEmpleado",totalEmpleado)
+    mostrarTexto("infoTotalPago", totalAPagar)
+    mostrarTexto("infoAporteEmpresa", totalEmpleador)
+    mostrarTexto("infoAporteEmpleado", totalEmpleado)
+    totalNomina = totalAPagar + totalEmpleado + totalEmpleador;
+    mostrarTexto("infoTotalNomina", totalNomina)
 }
